@@ -9,16 +9,27 @@
 (defn form
   "Create a bootstrap form with classes and form-body with default
   bootstrap form classes"
-  ([form-body]
-     (form "" form-body))
-  ([classes & form-body]
-     (let [classes (util/clss classes)]
-       [:form {:class classes :role "form"}
-        form-body])))
+  [attrs & form-body]
+  (let [classes (util/clss (:class attrs))
+        attrs (assoc attrs :class classes)]
+    [:form (merge {:role "form"} attrs)
+     form-body]))
 
-(def form-horizontal (partial form "form-horizontal"))
-(def form-inline (partial form "form-inline"))
+(defn- with-default-class [func cls]
+  (fn [attrs body]
+    (let [classes (str (:class attrs) " " cls)
+          attrs (assoc attrs :class classes)]
+      (apply func attrs body))))
 
+(defn form-horizontal
+  [attrs & form-body]
+  ((with-default-class
+     form "form-horizontal") attrs form-body))
+
+(defn form-inline
+  [attrs & form-body]
+  ((with-default-class
+     form "form-inline") attrs form-body))
 
 (defn label
   "Form label"
