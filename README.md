@@ -1,3 +1,5 @@
+![Current version](https://clojars.org/hiccup-bootstrap-elements/latest-version.svg)
+
 # Bootstrap Elements - Hiccup helpers
 
 You just need to add this to your `project.clj`.
