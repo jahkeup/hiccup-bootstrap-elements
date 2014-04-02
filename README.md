@@ -24,7 +24,8 @@ You are more than welcome to
 ```clojure
 (:require [hiccup.bootstrap3.elements :refer :all]
           [hiccup.bootstrap3.forms :refer :all])
-		  ```
+
+```
 
 But note that there are a few overlapping fn's that will replace
 `hiccup`'s (such as `input` from `forms`). If you understand that and
