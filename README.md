@@ -11,7 +11,7 @@ sure things will be fine.
 Helpers include:
 
 - Column and Row helpers - `col` `col-row` `container`
-- Navbar and Links - `navbar` `navbar-inverse` `link-to`
+- Navbar and Links - `navbar` `navbar-inverse` `navbar-links` `link-to`
 - Form Helper - `form` `form-inline` `form-horizontal`
 - Form Inputs - `input` `textarea` `select-input`
 
