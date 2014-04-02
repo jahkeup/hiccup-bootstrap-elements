@@ -67,7 +67,3 @@
                     option)]
         [:option {:value val} name]))]])
 
-
-(select-input "my_select" "My Select"
-              [{:name "Option 1" :value 1}
-               "option2"])
