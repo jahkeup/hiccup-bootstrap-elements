@@ -7,19 +7,22 @@
 
 
 (defn col
-  "Create column of colsize and with col-classes"
+  "Create a column with {:size 9} or {:class \"col-sm-9\"}
+   or even {:class \"sm-8\"} which will get expanded to
+   the right column class"
   [attrs & body]
   (let [colsize (:size attrs)
         classes (:class attrs)
         attrs (dissoc attrs :size)]
     [:div (merge {:class (utils/clss
-                    (utils/transform-cls-for-row
-                     (union [colsize] (flatten classes))))}
+                          (utils/transform-cls-for-row
+                           (union [colsize] (flatten classes))))}
                  attrs)
      body]))
 
 (defn col-row
-  "For those who love single column rows"
+  "For those who love single column rows,
+   same params as col."
   [attrs & body]
   [:div.row
    (apply col attrs body)])
@@ -32,7 +35,8 @@
      [:div.container attrs body]))
 
 (defn navbar
-  "Bootstrap navbar"
+  "Bootstrap navbar, tack on some attrs to make it behave.
+   See [bootstrap docs](http://getbootstrap.com/components/#navbar)."
   ([body]
      (navbar {} body))
   ([attrs & body]
@@ -49,6 +53,7 @@
      [:li link])])
 
 (defn navbar-inverse
+  "Create a navbar inverse"
   [attrs body]
   (navbar (merge attrs {:class "navbar-inverse"})))
 
