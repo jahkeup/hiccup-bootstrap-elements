@@ -69,7 +69,8 @@
      (input name label "textarea" value "" "textarea" attrs)))
 
 (defn select-alone [name label-text options]
-  [(label name label-text)
+  [:div.form-group
+   (label name label-text)
    [:select.form-control
     (for [option options]
       (let [name (or (and (map? option) (:name option))
