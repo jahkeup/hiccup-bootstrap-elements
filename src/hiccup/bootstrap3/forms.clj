@@ -71,7 +71,7 @@
 (defn select-alone [name label-text options]
   [:div.form-group
    (label name label-text)
-   [:select.form-control
+   [:select.form-control {:name name}
     (for [option options]
       (let [name (or (and (map? option) (:name option))
                      option)
